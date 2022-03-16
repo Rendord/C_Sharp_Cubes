@@ -82,15 +82,18 @@ namespace MatrixTransformations
             //Matrix morty = new Matrix(2, 4, 6, 8, 10, 12, 14, 16, 18);
             //Matrix moriarty = Matrix.ScaleMatrix(4) * morty;
             //Console.WriteLine(moriarty.ToString());
-            
-
-
-
 
 
 
 
         }
+
+
+
+
+
+
+    
         private void animationEvent(Object myObject, EventArgs myEventArgs)
         {
             
@@ -191,10 +194,12 @@ namespace MatrixTransformations
 
             // Draw Text
             RenderParameters(e);
+
+            
             // Draw axes
-            x_axis.Draw(e.Graphics, VertexBuilder(x_axis.vertexbuffer));
-            y_axis.Draw(e.Graphics, VertexBuilder(y_axis.vertexbuffer));
-            z_axis.Draw(e.Graphics, VertexBuilder(z_axis.vertexbuffer));
+            x_axis.Draw(e.Graphics, AxesBuilder(x_axis.vertexbuffer));
+            y_axis.Draw(e.Graphics, AxesBuilder(y_axis.vertexbuffer));
+            z_axis.Draw(e.Graphics, AxesBuilder(z_axis.vertexbuffer));
 
             // Draw cube
             cube.Draw(e.Graphics, VertexBuilder(cube.vertexbuffer));
@@ -242,6 +247,23 @@ namespace MatrixTransformations
             phase = 0;
         }
 
+        private List<Vector> AxesBuilder(List<Vector> vb)
+        {
+            List<Vector> placeholder = new List<Vector>();
+            placeholder.AddRange(vb);
+
+            for (int i = 0; i < x_axis.vertexbuffer.Count; i++)
+            {
+                placeholder[i] = Matrix.ViewMatrix(theta, phi, r) * placeholder[i];
+                placeholder[i] = Matrix.ProjectionMatrix(depth, placeholder[i]) * placeholder[i];
+            }
+            placeholder.ForEach((v) => v.y = -v.y);
+            placeholder.ForEach((v) => v.x += 0.5f * WIDTH);
+            placeholder.ForEach((v) => v.y += 0.5f * HEIGHT);
+            
+
+            return placeholder;
+        }
         private List<Vector> VertexBuilder(List<Vector> vb)
         {
             List<Vector> placeholder = new List<Vector>();
@@ -274,8 +296,10 @@ namespace MatrixTransformations
             //{
                 placeholder[i] = Matrix.ProjectionMatrix(depth, placeholder[i]) * placeholder[i];
             }
+            placeholder.ForEach((v) => v.y = -v.y);
             placeholder.ForEach((v) => v.x += 0.5f * WIDTH);
             placeholder.ForEach((v) => v.y += 0.5f * HEIGHT);
+            
             return placeholder;
 
         }
@@ -289,9 +313,9 @@ namespace MatrixTransformations
             if (e.KeyCode == Keys.Right)
                 TVector.x++;
             if (e.KeyCode == Keys.Down)
-                TVector.y++;
-            if (e.KeyCode == Keys.Up)
                 TVector.y--;
+            if (e.KeyCode == Keys.Up)
+                TVector.y++;
             if (e.KeyCode == Keys.PageDown)
                 TVector.z--;
             if (e.KeyCode == Keys.PageUp)
