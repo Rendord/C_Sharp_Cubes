@@ -18,25 +18,25 @@ namespace MatrixTransformations
         private const int size = 1;
         public List<Vector> vertexbuffer = new List<Vector>
         {
-            //new Vector( 1.0f,  1.0f, 1.0f),     //0
-            //new Vector( 1.0f, -1.0f, 1.0f),     //1
-            //new Vector(-1.0f, -1.0f, 1.0f),     //2
-            //new Vector(-1.0f,  1.0f, 1.0f),     //3
+            new Vector( 1.0f,  1.0f, 1.0f),     //0
+            new Vector( 1.0f, -1.0f, 1.0f),     //1
+            new Vector(-1.0f, -1.0f, 1.0f),     //2
+            new Vector(-1.0f,  1.0f, 1.0f),     //3
 
-            //new Vector( 1.0f,  1.0f, -1.0f),    //4
-            //new Vector( 1.0f, -1.0f, -1.0f),    //5
-            //new Vector(-1.0f, -1.0f, -1.0f),    //6
-            //new Vector(-1.0f,  1.0f, -1.0f),    //7
+            new Vector( 1.0f,  1.0f, -1.0f),    //4
+            new Vector( 1.0f, -1.0f, -1.0f),    //5
+            new Vector(-1.0f, -1.0f, -1.0f),    //6
+            new Vector(-1.0f,  1.0f, -1.0f),    //7
 
-            //new Vector( 1.2f,  1.2f, 1.2f),     //0
-            //new Vector( 1.2f, -1.2f, 1.2f),     //1
-            //new Vector(-1.2f, -1.2f, 1.2f),     //2
-            //new Vector(-1.2f,  1.2f, 1.2f),     //3
+            new Vector( 1.2f,  1.2f, 1.2f),     //0
+            new Vector( 1.2f, -1.2f, 1.2f),     //1
+            new Vector(-1.2f, -1.2f, 1.2f),     //2
+            new Vector(-1.2f,  1.2f, 1.2f),     //3
 
-            //new Vector( 1.2f,  1.2f, -1.2f),    //4
-            //new Vector( 1.2f, -1.2f, -1.2f),    //5
-            //new Vector(-1.2f, -1.2f, -1.2f),    //6
-            //new Vector(-1.2f,  1.2f, -1.2f)     //7
+            new Vector( 1.2f,  1.2f, -1.2f),    //4
+            new Vector( 1.2f, -1.2f, -1.2f),    //5
+            new Vector(-1.2f, -1.2f, -1.2f),    //6
+            new Vector(-1.2f,  1.2f, -1.2f)     //7
         };
 
         private Color color;
