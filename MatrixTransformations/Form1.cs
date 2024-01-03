@@ -180,13 +180,7 @@ namespace MatrixTransformations
             Refresh();
         }
 
-        private void DoSomething()
-        {
-            int i = 1;
-            int r = 1;
-            int k = i + 2;
-
-        }
+        
 
         protected override void OnPaint(PaintEventArgs e)
         {
